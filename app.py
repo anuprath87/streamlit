@@ -1,10 +1,9 @@
 import streamlit as st
-import pandas as pd
 
-#file = st.file_uploader("Upload CSV File")
-file = st.sidebar("Upload CSV File")
+st.title("Main Area")
 
-if file:
-    data = pd.read_csv(file)
-    #st.write("Full Data:")
-    st.dataframe(data)
+user_name = st.sidebar.text_input("Enter your name")
+value = st.sidebar.slider("Choose a value", 0, 100)
+
+st.write(f"Hello, {user_name}!")
+st.write(f"Selected value: {value}")
