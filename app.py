@@ -1,7 +1,9 @@
 import streamlit as st
+import pandas as pd
 
-if st.button("Say Hello"):
-    st.write("Hello, User!")
+file = st.file_uploader("Upload CSV File")
 
-if st.button("Say Bye"):
-    st.write("Goodbye, User!")
+if file:
+    data = pd.read_csv(file)
+    st.write("Full Data:")
+    st.dataframe(data)
